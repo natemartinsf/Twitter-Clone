@@ -1,0 +1,647 @@
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-28 19:09:20) [GET]
+Rendering home/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://0.0.0.0/home/index]
+
+
+Processing HomeController#test (for 127.0.0.1 at 2009-08-28 19:09:28) [GET]
+
+ActionController::UnknownAction (No action responded to test. Actions: index):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-28 19:09:32) [GET]
+Rendering home/index
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://0.0.0.0/home/index]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-28 19:12:46) [GET]
+Rendering home/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://0.0.0.0/]
+/!\ FAILSAFE /!\  Fri Aug 28 19:13:07 -0700 2009
+  Status: 500 Internal Server Error
+  wrong number of arguments (2 for 1)
+    /Users/nmartin/Projects/Twitter-Clone/twitter-clone/config/routes.rb:42:in `root'
+    /Users/nmartin/Projects/Twitter-Clone/twitter-clone/config/routes.rb:42
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:226:in `draw'
+    /Users/nmartin/Projects/Twitter-Clone/twitter-clone/config/routes.rb:1
+    /Users/nmartin/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load_without_new_constant_marking'
+    /Users/nmartin/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load'
+    /Users/nmartin/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/nmartin/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `each'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:266:in `load!'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:281:in `reload'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:59:in `reload_application'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:28:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Users/nmartin/.gem/ruby/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-28 19:13:08) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+/!\ FAILSAFE /!\  Fri Aug 28 19:13:16 -0700 2009
+  Status: 500 Internal Server Error
+  /Users/nmartin/Projects/Twitter-Clone/twitter-clone/config/routes.rb:42: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  map.root, :controller => 'home'
+                          ^
+    /Users/nmartin/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load_without_new_constant_marking'
+    /Users/nmartin/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load'
+    /Users/nmartin/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/nmartin/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `each'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:266:in `load!'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:281:in `reload'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:59:in `reload_application'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:28:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/nmartin/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Users/nmartin/.gem/ruby/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-28 19:13:17) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-28 19:13:33) [GET]
+Rendering home/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090829022816)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255) NOT NULL, "email" varchar(255) NOT NULL, "crypted_password" varchar(255) NOT NULL, "password_salt" varchar(255) NOT NULL, "persistence_token" varchar(255) NOT NULL, "single_access_token" varchar(255) NOT NULL, "perishable_token" varchar(255) NOT NULL, "login_count" integer DEFAULT 0 NOT NULL, "failed_login_count" integer DEFAULT 0 NOT NULL, "last_request_at" datetime, "current_login_at" datetime, "last_login_at" datetime, "current_login_ip" varchar(255), "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090829022816')[0m
+Migrating to CreateStatuses (20090829023752)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090829023752')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("statuses")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("users")[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-08-28 20:32:41) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-08-28 20:32:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+
+NameError (uninitialized constant Authlogic):
+  app/models/user_session.rb:1
+  app/controllers/application_controller.rb:13:in `current_user_session'
+  app/controllers/application_controller.rb:18:in `current_user'
+  app/controllers/application_controller.rb:31:in `require_no_user'
+
+Rendered rescues/_trace (101.5ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-28 20:35:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-08-28 20:36:10) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+
+NameError (uninitialized constant Authlogic):
+  app/models/user_session.rb:1
+  app/controllers/application_controller.rb:13:in `current_user_session'
+  app/controllers/application_controller.rb:18:in `current_user'
+  app/controllers/application_controller.rb:31:in `require_no_user'
+
+Rendered rescues/_trace (40.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-08-28 20:36:11) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+
+NameError (uninitialized constant Authlogic):
+  app/models/user_session.rb:1
+  app/controllers/application_controller.rb:13:in `current_user_session'
+  app/controllers/application_controller.rb:18:in `current_user'
+  app/controllers/application_controller.rb:31:in `require_no_user'
+
+Rendered rescues/_trace (105.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-08-28 20:37:17) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+
+NameError (uninitialized constant Authlogic):
+  app/models/user_session.rb:1
+  app/controllers/application_controller.rb:13:in `current_user_session'
+  app/controllers/application_controller.rb:18:in `current_user'
+  app/controllers/application_controller.rb:31:in `require_no_user'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-08-28 20:37:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+
+NameError (uninitialized constant Authlogic):
+  app/models/user_session.rb:1
+  app/controllers/application_controller.rb:13:in `current_user_session'
+  app/controllers/application_controller.rb:18:in `current_user'
+  app/controllers/application_controller.rb:31:in `require_no_user'
+
+Rendered rescues/_trace (105.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-08-28 20:37:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+
+NameError (uninitialized constant Authlogic):
+  app/models/user_session.rb:1
+  app/controllers/application_controller.rb:13:in `current_user_session'
+  app/controllers/application_controller.rb:18:in `current_user'
+  app/controllers/application_controller.rb:31:in `require_no_user'
+
+Rendered rescues/_trace (39.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-08-28 20:41:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Rendered users/_form (1.2ms)
+Completed in 24ms (View: 11, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-08-28 20:41:44) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"test"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'test') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '1730a41c0d8be8b221d3a6ffd87a2f4c8acd941d18e1b88b19e428a0aca8f2b765da38c0ef58aa4a4500f6d8891cfcb0e18b37a9f466104b37d91a1752f22175') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'Dw8Wb44YPDIm4yr75sBU') LIMIT 1[0m
+Rendering users/new
+Rendered users/_form (0.6ms)
+Completed in 182ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-08-28 20:41:54) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"test@test.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'test@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '6b1bac95d4e897680f64f4630e407cf112c264d04f0b7c7a5f17f9d372bf801a5543d45c9a37030fe698be7726b197647a6e4c49876fb83a8d2585270ceb0972') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'K1z_mfKaVYLGWQPOanrp') LIMIT 1[0m
+Rendering users/new
+Rendered users/_form (0.7ms)
+Completed in 22ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-08-28 20:42:18) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"test@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'test@test.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'c06459f16a061b1850bde2a15ca50a4d09feac233c7586e4b22546eb8bbee1b6acd45cb1b59e1e6e1bda9bb1bef0b6add6a3711c50bcf760c17105a9c819375f') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'HWSu0cVm-Y8SXdDdf7yy') LIMIT 1[0m
+Rendering users/new
+Rendered users/_form (1.5ms)
+Completed in 25ms (View: 6, DB: 0) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-08-28 20:42:26) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"test", "email"=>"test@test.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'test') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'MzyxZPLU01uuNCtF567g') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO "users" ("single_access_token", "last_request_at", "created_at", "crypted_password", "perishable_token", "updated_at", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "persistence_token", "login_count", "last_login_ip", "login", "last_login_at", "email") VALUES('MzyxZPLU01uuNCtF567g', '2009-08-29 03:42:26', '2009-08-29 03:42:26', 'a58da2485b49026f92df5c942a2c5b56f43c6b63b4ab525d4a0d4ee79e5d59de1905d2f02f31ef174214941503383a1c9b0e0f40ca9aa3b071f63ed0d6b22e2c', 'pOASKHQ_dbipkaVvKyWw', '2009-08-29 03:42:26', 0, '127.0.0.1', 'DQ_dt9ESiU_jwPXE3sRF', '2009-08-29 03:42:26', '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262', 1, NULL, 'test', NULL, 'test@test.com')[0m
+Redirected to http://0.0.0.0:3000/account
+Completed in 126ms (DB: 1) | 302 Found [http://0.0.0.0/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-28 20:42:26) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-08-29 03:42:26', "perishable_token" = 'MEAQIX0-1Uw9ZHnyz4oZ', "last_request_at" = '2009-08-29 03:42:26' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 35ms (View: 3, DB: 1) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-08-28 20:42:31) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-08-29 03:42:31', "perishable_token" = 'HoksDn9ZotQ9N2ljKwbK', "last_request_at" = '2009-08-29 03:42:31' WHERE "id" = 1[0m
+Rendering users/edit
+Rendered users/_form (0.8ms)
+Completed in 25ms (View: 5, DB: 1) | 200 OK [http://0.0.0.0/account/edit]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-28 20:42:32) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-08-29 03:42:32', "perishable_token" = '8enZv0jkWStXdRBwVBdx', "last_request_at" = '2009-08-29 03:42:32' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 21ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-08-28 20:42:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-28 20:43:04) [GET]
+  Parameters: {"action"=>"show", "id"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-08-29 03:43:04', "perishable_token" = 'VOR6sTMMyDzOODDzAp4x', "last_request_at" = '2009-08-29 03:43:04' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 21ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/users/show]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-28 20:43:34) [GET]
+
+ActionController::RoutingError (No route matches "/login" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-28 20:43:48) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-08-29 03:43:48', "perishable_token" = '8siJtALCXCmIrv1u8-xm', "last_request_at" = '2009-08-29 03:43:48' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 21ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-28 20:44:32) [GET]
+
+ActionController::RoutingError (No route matches "/account/delete" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-28 20:44:35) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-08-29 03:44:36', "perishable_token" = 'K-O0d0FIzzNIxsj3zdzc', "last_request_at" = '2009-08-29 03:44:36' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 88ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/account/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-28 20:44:48) [GET]
+
+ActionController::RoutingError (No route matches "/account/destroy" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-28 20:44:52) [GET]
+
+ActionController::RoutingError (No route matches "/account/logout" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-28 20:45:32) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-08-29 03:45:32', "perishable_token" = 'Ny1GLuTCLJlrPvwYMr6L', "last_request_at" = '2009-08-29 03:45:32' WHERE "id" = 1[0m
+Redirected to http://0.0.0.0:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 18ms (DB: 1) | 302 Found [http://0.0.0.0/user_session/new]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-28 20:45:32) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-08-29 03:45:32', "perishable_token" = 'FdzHYGVuOVRaQbil7rfc', "last_request_at" = '2009-08-29 03:45:32' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 20ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-28 21:13:18) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-08-29 04:13:18', "perishable_token" = 'c0hG02AlAXakQlNvKYdn', "last_request_at" = '2009-08-29 04:13:18' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 04:03:18') [0m
+Completed in 97ms (View: 7, DB: 1) | 200 OK [http://0.0.0.0/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-28 21:13:18) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-08-28 21:13:27) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '66d737821d662e2703a479f5e02f1a5e271403819a4ca315d9ade74816ad70f120a5528c8d9b71ff9793cacf02a13b8bc728353c55f95a824e006c20d0a2d262') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-08-29 04:13:27', "perishable_token" = 'a_aVXEA5HMFF5F2HFGsR', "last_request_at" = '2009-08-29 04:13:27' WHERE "id" = 1[0m
+Redirected to http://0.0.0.0:3000/user_session/new
+Completed in 20ms (DB: 1) | 302 Found [http://0.0.0.0/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-28 21:13:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 04:03:27') [0m
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://0.0.0.0/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-28 21:13:27) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-28 21:13:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 04:03:31') [0m
+Completed in 86ms (View: 16, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-28 21:13:31) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-28 21:16:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 04:06:14') [0m
+Completed in 15ms (View: 13, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-08-28 21:16:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-28 21:16:27) [GET]
+  Parameters: {"action"=>"show", "id"=>"show", "controller"=>"users"}
+Redirected to http://0.0.0.0:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 11ms (DB: 0) | 302 Found [http://0.0.0.0/users/show]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-28 21:16:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 04:06:27') [0m
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-08-28 21:16:33) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"test"}, "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'test') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "login_count" = 2, "updated_at" = '2009-08-29 04:16:33', "perishable_token" = 'NkUSdCS4Pa5_TNgl-AO_', "last_request_at" = '2009-08-29 04:16:33', "last_login_at" = '2009-08-29 03:42:26', "last_login_ip" = '127.0.0.1', "current_login_at" = '2009-08-29 04:16:33' WHERE "id" = 1[0m
+Redirected to http://0.0.0.0:3000/users/show
+Completed in 21ms (DB: 1) | 302 Found [http://0.0.0.0/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-28 21:16:33) [GET]
+  Parameters: {"action"=>"show", "id"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-08-29 04:16:33', "perishable_token" = 'cbYn5Cbofi1dqp_3KTyJ', "last_request_at" = '2009-08-29 04:16:33' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 04:06:33') [0m
+Completed in 22ms (View: 3, DB: 1) | 200 OK [http://0.0.0.0/users/show]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-28 21:17:11) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-08-29 04:17:11', "perishable_token" = '8Tl0M1zJ_IaqESTrxeUW', "last_request_at" = '2009-08-29 04:17:11' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 04:07:11') [0m
+Completed in 86ms (View: 3, DB: 1) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-08-28 21:17:15) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-08-29 04:17:15', "perishable_token" = '39STIUzL9XUahJXRTPwx', "last_request_at" = '2009-08-29 04:17:15' WHERE "id" = 1[0m
+Redirected to http://0.0.0.0:3000/user_session/new
+Completed in 21ms (DB: 1) | 302 Found [http://0.0.0.0/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-28 21:17:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 04:07:15') [0m
+Completed in 15ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/user_session/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-28 21:17:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 04:07:18') [0m
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/user_session/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-28 21:31:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 04:21:00') [0m
+Completed in 16ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/user_session/new]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-28 23:19:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 06:09:30') [0m
+Completed in 16ms (View: 14, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-29 13:54:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 20:44:46') [0m
+Completed in 17ms (View: 15, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-29 14:57:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-29 21:47:10') [0m
+Completed in 94ms (View: 93, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-29 22:59:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-30 05:49:35') [0m
+Completed in 18ms (View: 16, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-30 11:28:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-30 18:18:30') [0m
+Completed in 15ms (View: 13, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-31 09:56:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-31 16:46:03') [0m
+Completed in 78ms (View: 77, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-31 11:04:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-31 17:54:10') [0m
+Completed in 36ms (View: 34, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-31 12:28:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-31 19:18:47') [0m
+Completed in 28ms (View: 26, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-31 13:38:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-31 20:28:13') [0m
+Completed in 15ms (View: 13, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-31 15:53:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-31 22:43:22') [0m
+Completed in 16ms (View: 14, DB: 0) | 200 OK [http://0.0.0.0/]
