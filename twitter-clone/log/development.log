@@ -645,3 +645,1221 @@ Rendering template within layouts/application
 Rendering home/index
   [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-08-31 22:43:22') [0m
 Completed in 16ms (View: 14, DB: 0) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090829022816)
+Migrating to CreateStatuses (20090829023752)
+Migrating to AddRelationshipsToStatus (20090901013238)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mALTER TABLE "statuses" ADD "user" integer[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mALTER TABLE "statuses" ADD "replyto" integer[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090901013238')[0m
+Migrating to CreateMentions (20090901052044)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "mentions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status" integer, "user" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090901052044')[0m
+Migrating to CreateHashtags (20090901052204)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "hashtags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090901052204')[0m
+Migrating to AddStatusHashtagTable (20090901052600)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "status_hashtags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status" integer, "hashtag" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090901052600')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("hashtags")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("mentions")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("status_hashtags")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("statuses")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090829022816)
+Migrating to CreateStatuses (20090829023752)
+Migrating to AddRelationshipsToStatus (20090901013238)
+Migrating to CreateMentions (20090901052044)
+Migrating to CreateHashtags (20090901052204)
+Migrating to AddStatusHashtagTable (20090901052600)
+Migrating to FixRelationshipNames (20090901053225)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TEMPORARY TABLE "altered_status_hashtags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_id" integer, "hashtag" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("status_hashtags")[0m
+  [4;35;1mSQL (19.0ms)[0m   [0mDROP TABLE "status_hashtags"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE TABLE "status_hashtags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_id" integer, "hashtag" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_status_hashtags")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mDROP TABLE "altered_status_hashtags"[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TEMPORARY TABLE "altered_status_hashtags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_id" integer, "hashtag_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("status_hashtags")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mDROP TABLE "status_hashtags"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "status_hashtags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_id" integer, "hashtag_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("altered_status_hashtags")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mDROP TABLE "altered_status_hashtags"[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TEMPORARY TABLE "altered_mentions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_id" integer, "user" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("mentions")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mDROP TABLE "mentions"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE TABLE "mentions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_id" integer, "user" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_mentions")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mDROP TABLE "altered_mentions"[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCREATE TEMPORARY TABLE "altered_mentions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("mentions")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mDROP TABLE "mentions"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE TABLE "mentions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_mentions")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mDROP TABLE "altered_mentions"[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TEMPORARY TABLE "altered_statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "replyto" integer) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("statuses")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mDROP TABLE "statuses"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE TABLE "statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "replyto" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_statuses")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mDROP TABLE "altered_statuses"[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCREATE TEMPORARY TABLE "altered_statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "replyto_id" integer) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("statuses")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mDROP TABLE "statuses"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE TABLE "statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "replyto_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_statuses")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mDROP TABLE "altered_statuses"[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090901053225')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("hashtags")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("mentions")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("status_hashtags")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("statuses")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090829022816)
+Migrating to CreateStatuses (20090829023752)
+Migrating to AddRelationshipsToStatus (20090901013238)
+Migrating to CreateMentions (20090901052044)
+Migrating to CreateHashtags (20090901052204)
+Migrating to AddStatusHashtagTable (20090901052600)
+Migrating to FixRelationshipNames (20090901053225)
+Migrating to FixJoinTableName (20090901054419)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mALTER TABLE status_hashtags RENAME TO hashtags_statuses[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090901054419')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("hashtags")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("hashtags_statuses")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("mentions")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("statuses")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-31 22:56:25) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 05:46:25') [0m
+Completed in 133ms (View: 131, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-31 22:56:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 05:46:46') [0m
+Completed in 99ms (View: 33, DB: 0) | 200 OK [http://0.0.0.0/user_session/new]
+
+
+Processing UserSessionsController#edit (for 127.0.0.1 at 2009-08-31 22:56:49) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"user_sessions"}
+
+ActionController::UnknownAction (No action responded to edit. Actions: create, destroy, and new):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#edit to html (for 127.0.0.1 at 2009-08-31 22:56:58) [GET]
+  Parameters: {"format"=>"html", "action"=>"edit", "controller"=>"user_sessions"}
+
+ActionController::UnknownAction (No action responded to edit. Actions: create, destroy, and new):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-08-31 22:57:13) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (13.7ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 05:47:13') [0m
+Completed in 47ms (View: 34, DB: 0) | 200 OK [http://0.0.0.0/account/new]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-08-31 22:57:20) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+Redirected to http://0.0.0.0:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 71ms (DB: 0) | 302 Found [http://0.0.0.0/account/edit]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-31 22:57:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 05:47:20') [0m
+Completed in 16ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/user_session/new]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-08-31 22:57:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-31 22:57:33) [GET]
+  Parameters: {"action"=>"show", "id"=>"show", "controller"=>"users"}
+Redirected to http://0.0.0.0:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 12ms (DB: 0) | 302 Found [http://0.0.0.0/users/show]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-31 22:57:33) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 05:47:33') [0m
+Completed in 16ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/user_session/new]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-31 22:57:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"show", "controller"=>"users"}
+Redirected to http://0.0.0.0:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 11ms (DB: 0) | 302 Found [http://0.0.0.0/users/show]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-31 22:57:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 05:47:36') [0m
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/user_session/new]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-08-31 22:57:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-31 22:57:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+Redirected to http://0.0.0.0:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 12ms (DB: 0) | 302 Found [http://0.0.0.0/users/1/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-31 22:57:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 05:47:49') [0m
+Completed in 74ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/user_session/new]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-08-31 23:25:17) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"test@test.com"}, "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'test@test.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:15:17') [0m
+Completed in 143ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/user_session]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-08-31 23:25:27) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "login"=>"test"}, "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'test') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "login_count" = 3, "updated_at" = '2009-09-01 06:25:27', "perishable_token" = 'd2bghMdc7M0w7EqB4XiL', "last_request_at" = '2009-09-01 06:25:27', "last_login_at" = '2009-08-29 04:16:33', "current_login_at" = '2009-09-01 06:25:27' WHERE "id" = 1[0m
+Redirected to http://0.0.0.0:3000/users/1/
+Completed in 111ms (DB: 1) | 302 Found [http://0.0.0.0/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-31 23:25:27) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:25:27', "perishable_token" = 'EiunEFF5wVmhWKuDsUNC', "last_request_at" = '2009-09-01 06:25:27' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:15:27') [0m
+Completed in 28ms (View: 6, DB: 1) | 200 OK [http://0.0.0.0/users/1/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-31 23:25:47) [GET]
+
+ActionController::RoutingError (No route matches "/users/1/status/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-08-31 23:25:51) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:15:51') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:25:51', "perishable_token" = 'gtvjxEfruv-n2zkFSa8G', "last_request_at" = '2009-09-01 06:25:51' WHERE "id" = 1[0m
+Completed in 104ms (View: 92, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-08-31 23:34:34) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"test"}}
+  [4;35;1mStatus Create (0.4ms)[0m   [0mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-01 06:34:34', NULL, '2009-09-01 06:34:34', NULL, 'test')[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 13ms (DB: 0) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:34:34) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `find_by_user' for #<Class:0x104138ee0>):
+  app/controllers/statuses_controller.rb:3:in `index'
+
+Rendered rescues/_trace (31.9ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-08-31 23:34:44) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:24:44') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:34:44', "perishable_token" = '75HIH_AcGDk0v6ksufon', "last_request_at" = '2009-09-01 06:34:44' WHERE "id" = 1[0m
+Completed in 104ms (View: 96, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:35:09) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `find_by_user' for #<Class:0x1041cb100>):
+  app/controllers/statuses_controller.rb:3:in `index'
+
+Rendered rescues/_trace (32.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:35:42) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+
+NameError (undefined local variable or method `user' for #<StatusesController:0x103fe09a8>):
+  app/controllers/statuses_controller.rb:3:in `index'
+
+Rendered rescues/_trace (99.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:38:33) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  app/controllers/statuses_controller.rb:3:in `index'
+
+Rendered rescues/_trace (30.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:38:39) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:28:39') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:38:39', "perishable_token" = 'Ik4QmTQjzmVjjYLWawRH', "last_request_at" = '2009-09-01 06:38:39' WHERE "id" = 1[0m
+Completed in 105ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses/]
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-08-31 23:39:28) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:29:28') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:39:28', "perishable_token" = 'sKw1En1NVUb02K5zJ4JD', "last_request_at" = '2009-09-01 06:39:28' WHERE "id" = 1[0m
+Completed in 31ms (View: 24, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-08-31 23:39:30) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"test"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Create (0.3ms)[0m   [0;1mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-01 06:39:31', NULL, '2009-09-01 06:39:31', 1, 'test')[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 96ms (DB: 1) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:39:31) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;36;1mStatus Load (0.4ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:29:31') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:39:31', "perishable_token" = '4kNjChwHFMzEVsv5Ixg8', "last_request_at" = '2009-09-01 06:39:31' WHERE "id" = 1[0m
+Completed in 35ms (View: 19, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:44:39) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;35;1mStatus Load (0.3ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:34:39') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:44:39', "perishable_token" = '9TWaPqo-ijvlM8TBX3yE', "last_request_at" = '2009-09-01 06:44:39' WHERE "id" = 1[0m
+Completed in 98ms (View: 82, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:44:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:34:49') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:44:49', "perishable_token" = 'qEvu9Ox-0-8Q5RsMgt34', "last_request_at" = '2009-09-01 06:44:49' WHERE "id" = 1[0m
+Completed in 32ms (View: 24, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/1]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:44:51) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:34:51') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:44:51', "perishable_token" = 'Dj7DB3DwgXeA8OclW0x2', "last_request_at" = '2009-09-01 06:44:51' WHERE "id" = 1[0m
+Completed in 29ms (View: 22, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/2]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:44:53) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mStatus Load (0.1ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses"."id" = 3) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Status with ID=3):
+  app/controllers/statuses_controller.rb:22:in `show'
+
+Rendered rescues/_trace (31.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:44:54) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:34:54') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:44:54', "perishable_token" = '05E6oYVgfma6zEPZBg25', "last_request_at" = '2009-09-01 06:44:54' WHERE "id" = 1[0m
+Completed in 29ms (View: 21, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/2]
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-08-31 23:45:11) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:35:11') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:45:11', "perishable_token" = 'Hs2yScoUJ1sBRtuExQHL', "last_request_at" = '2009-09-01 06:45:11' WHERE "id" = 1[0m
+Completed in 31ms (View: 24, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-08-31 23:45:13) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"test"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Create (0.4ms)[0m   [0;1mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-01 06:45:13', NULL, '2009-09-01 06:45:13', 1, NULL)[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 21ms (DB: 1) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:45:13) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;36;1mStatus Load (0.3ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:35:13') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:45:13', "perishable_token" = 'w2NimR9-ZDPNCxytAjuZ', "last_request_at" = '2009-09-01 06:45:13' WHERE "id" = 1[0m
+Completed in 96ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:45:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:35:20') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:45:20', "perishable_token" = '0RtNOrODJp4BUkt_yxeZ', "last_request_at" = '2009-09-01 06:45:20' WHERE "id" = 1[0m
+Completed in 29ms (View: 21, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/3]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:45:22) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.1ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 4) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Status with ID=4):
+  app/controllers/statuses_controller.rb:22:in `show'
+
+Rendered rescues/_trace (100.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:45:23) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:35:23') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:45:23', "perishable_token" = 'HOuJ6RxifBoXI9d9S6sL', "last_request_at" = '2009-09-01 06:45:23' WHERE "id" = 1[0m
+Completed in 30ms (View: 22, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/3]
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-08-31 23:46:10) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:36:10') [0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:46:10', "perishable_token" = 'i9FeFv_pkBVIV6HvSofN', "last_request_at" = '2009-09-01 06:46:10' WHERE "id" = 1[0m
+Completed in 115ms (View: 104, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-08-31 23:46:13) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"test"}}
+
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  app/controllers/statuses_controller.rb:8:in `create'
+
+Rendered rescues/_trace (31.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-08-31 23:47:00) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:37:00') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:47:00', "perishable_token" = 'I0PjTw94pAhee4ErjplX', "last_request_at" = '2009-09-01 06:47:00' WHERE "id" = 1[0m
+Completed in 103ms (View: 96, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-08-31 23:47:01) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"test"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Create (0.3ms)[0m   [0;1mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-01 06:47:01', NULL, '2009-09-01 06:47:01', 1, NULL)[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 22ms (DB: 1) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:47:01) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;36;1mStatus Load (0.4ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:37:02') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:47:02', "perishable_token" = 'C8GspMUPgFwgKauChECg', "last_request_at" = '2009-09-01 06:47:02' WHERE "id" = 1[0m
+Completed in 32ms (View: 16, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:47:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:37:07') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:47:07', "perishable_token" = 'NvmTa4rgrrdbR-m_kD2r', "last_request_at" = '2009-09-01 06:47:07' WHERE "id" = 1[0m
+Completed in 31ms (View: 23, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/4]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:47:26) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:37:26') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:47:26', "perishable_token" = 'P0oJFxuvk4iHNfkyl2b0', "last_request_at" = '2009-09-01 06:47:26' WHERE "id" = 1[0m
+Completed in 33ms (View: 26, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/4]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:47:27) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:37:27') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:47:27', "perishable_token" = 'K7UzvGSq6rUL200_uZ8B', "last_request_at" = '2009-09-01 06:47:27' WHERE "id" = 1[0m
+Completed in 31ms (View: 23, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/4]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:47:29) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;35;1mStatus Load (0.4ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:37:29') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:47:29', "perishable_token" = 'ulAapwTUere11nqYdHVJ', "last_request_at" = '2009-09-01 06:47:29' WHERE "id" = 1[0m
+Completed in 33ms (View: 17, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses/]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:47:34) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mStatus Load (0.1ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses"."id" = 5) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Status with ID=5):
+  app/controllers/statuses_controller.rb:23:in `show'
+
+Rendered rescues/_trace (32.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:47:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:37:36') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:47:36', "perishable_token" = '6a39KJ9_ZRZc3eQ5QyjQ', "last_request_at" = '2009-09-01 06:47:36' WHERE "id" = 1[0m
+Completed in 31ms (View: 23, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/4]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:48:17) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "user_id"=>"1", "controller"=>"statuses"}
+
+ActiveRecord::RecordNotFound (Couldn't find Status without an ID):
+  app/controllers/statuses_controller.rb:23:in `show'
+
+Rendered rescues/_trace (32.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-08-31 23:48:24) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:38:24') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:48:24', "perishable_token" = 'j9xstUwB7XoPe4AqKVG0', "last_request_at" = '2009-09-01 06:48:24' WHERE "id" = 1[0m
+Completed in 31ms (View: 23, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/4]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:49:09) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;35;1mStatus Load (0.4ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:39:09') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:49:09', "perishable_token" = 'uwVzWPwnl4AYXYaxcYo6', "last_request_at" = '2009-09-01 06:49:09' WHERE "id" = 1[0m
+Completed in 101ms (View: 16, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses/]
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-08-31 23:49:12) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:39:12') [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 06:49:12', "perishable_token" = 'S4bwZADJVeArGnqqOxzk', "last_request_at" = '2009-09-01 06:49:12' WHERE "id" = 1[0m
+Completed in 30ms (View: 24, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-08-31 23:49:16) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"test 2"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mStatus Create (0.3ms)[0m   [0mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-01 06:49:16', NULL, '2009-09-01 06:49:16', 1, NULL)[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 84ms (DB: 1) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-08-31 23:49:16) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;35;1mStatus Load (0.5ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:39:16') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 06:49:16', "perishable_token" = 'c2Envc-hGqjPfPIKqyc3', "last_request_at" = '2009-09-01 06:49:16' WHERE "id" = 1[0m
+Completed in 32ms (View: 16, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-01 00:02:37) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;36;1mStatus Load (0.4ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:52:37') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 07:02:37', "perishable_token" = 'bj_7c-GNgghCIjaN5nsC', "last_request_at" = '2009-09-01 07:02:37' WHERE "id" = 1[0m
+Completed in 278ms (View: 262, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-09-01 00:02:54) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:52:54') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 07:02:54', "perishable_token" = 'YUQllbnZUzrp0DouD5iG', "last_request_at" = '2009-09-01 07:02:54' WHERE "id" = 1[0m
+Completed in 32ms (View: 24, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-09-01 00:02:57) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"another test"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Create (0.3ms)[0m   [0;1mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-01 07:02:57', NULL, '2009-09-01 07:02:57', 1, NULL)[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 21ms (DB: 1) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-01 00:02:57) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;36;1mStatus Load (0.5ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:52:57') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 07:02:57', "perishable_token" = 'ab021TaN3ofdwSXyWYmS', "last_request_at" = '2009-09-01 07:02:57' WHERE "id" = 1[0m
+Completed in 96ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-09-01 00:03:54) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:53:54') [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 07:03:54', "perishable_token" = 'OliCAwKK8Ten8QgXEsEN', "last_request_at" = '2009-09-01 07:03:54' WHERE "id" = 1[0m
+Completed in 31ms (View: 24, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-09-01 00:03:56) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"another test"}}
+
+ActiveRecord::AssociationTypeMismatch (User(#2181204900) expected, got String(#2148246520)):
+  app/controllers/statuses_controller.rb:9:in `create'
+
+Rendered rescues/_trace (32.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-09-01 00:04:17) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:54:17') [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 07:04:17', "perishable_token" = 'qMvBhUdxt4KGb4C-BOhx', "last_request_at" = '2009-09-01 07:04:17' WHERE "id" = 1[0m
+Completed in 30ms (View: 23, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-09-01 00:04:18) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"another test"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mStatus Create (0.3ms)[0m   [0mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-01 07:04:18', NULL, '2009-09-01 07:04:18', 1, NULL)[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 93ms (DB: 1) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-01 00:04:18) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;35;1mStatus Load (0.5ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 06:54:18') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 07:04:18', "perishable_token" = 'xyuvxysWxNo2iwGtC773', "last_request_at" = '2009-09-01 07:04:18' WHERE "id" = 1[0m
+Completed in 32ms (View: 16, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-01 08:08:33) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+
+NoMethodError (undefined method `statuses' for #<Array:0x10406fe78>):
+  app/controllers/statuses_controller.rb:3:in `index'
+
+Rendered rescues/_trace (98.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-01 08:08:34) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+
+NoMethodError (undefined method `statuses' for #<Array:0x10413a1c8>):
+  app/controllers/statuses_controller.rb:3:in `index'
+
+Rendered rescues/_trace (30.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-01 08:08:50) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Load (0.6ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 14:58:51') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 15:08:51', "perishable_token" = 'cPfUX87LEs_k8q3HYTBi', "last_request_at" = '2009-09-01 15:08:51' WHERE "id" = 1[0m
+Completed in 102ms (View: 16, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-09-01 08:09:09) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 14:59:09') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 15:09:09', "perishable_token" = 'fHJhC24oFmLj9O1kivPU', "last_request_at" = '2009-09-01 15:09:09' WHERE "id" = 1[0m
+Completed in 31ms (View: 23, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/5]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-09-01 08:09:11) [GET]
+  Parameters: {"action"=>"show", "id"=>"6", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 14:59:11') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 15:09:11', "perishable_token" = 'RHfyw790-_YRbYBiHKrW', "last_request_at" = '2009-09-01 15:09:11' WHERE "id" = 1[0m
+Completed in 97ms (View: 88, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/6]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-09-01 08:09:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"7", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 7) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 14:59:12') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 15:09:12', "perishable_token" = 'U5bPJawwFIFYmyb6xTBo', "last_request_at" = '2009-09-01 15:09:12' WHERE "id" = 1[0m
+Completed in 31ms (View: 23, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/7]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-09-01 08:09:14) [GET]
+  Parameters: {"action"=>"show", "id"=>"8", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.1ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 8) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Status with ID=8):
+  app/controllers/statuses_controller.rb:23:in `show'
+
+Rendered rescues/_trace (103.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-09-01 08:09:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"7", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses"."id" = 7) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 14:59:18') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-01 15:09:18', "perishable_token" = 'BlbWVIKLIXhnPuGsYkxD', "last_request_at" = '2009-09-01 15:09:18' WHERE "id" = 1[0m
+Completed in 31ms (View: 23, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/7]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-09-01 08:34:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-01 15:24:15') [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-01 15:34:15', "perishable_token" = '0Ga3kOKLa6yGJn03XlF9', "last_request_at" = '2009-09-01 15:34:15' WHERE "id" = 1[0m
+Completed in 45ms (View: 42, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-09-02 00:22:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:12:07') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-02 07:22:07', "perishable_token" = 'UZNtnRx_fH5m-UNsHvhN', "last_request_at" = '2009-09-02 07:22:07' WHERE "id" = 1[0m
+Completed in 92ms (View: 90, DB: 1) | 200 OK [http://0.0.0.0/]
+  [4;36;1mStatus Load (0.7ms)[0m   [0;1mSELECT * FROM "statuses" [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Load (0.4ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-09-02 00:25:48) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:15:48') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-02 07:25:48', "perishable_token" = 'vHsm7gDj9D6fGdikfwTI', "last_request_at" = '2009-09-02 07:25:48' WHERE "id" = 1[0m
+Completed in 31ms (View: 24, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-09-02 00:25:51) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"this is a test"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mStatus Create (0.3ms)[0m   [0mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-02 07:25:51', NULL, '2009-09-02 07:25:51', 1, NULL)[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 86ms (DB: 1) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-02 00:25:51) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mStatus Load (0.6ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:15:51') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-02 07:25:51', "perishable_token" = 'IXJkGBjB9jcsOgrqQEpH', "last_request_at" = '2009-09-02 07:25:51' WHERE "id" = 1[0m
+Completed in 32ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Load (0.9ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-09-02 00:28:58) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:18:58') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-02 07:28:58', "perishable_token" = 'HQDBtqbGZMzWFU9eQ0Oz', "last_request_at" = '2009-09-02 07:28:58' WHERE "id" = 1[0m
+Completed in 340ms (View: 333, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-09-02 00:29:06) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"wahooooo"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mStatus Create (0.4ms)[0m   [0mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-02 07:29:07', NULL, '2009-09-02 07:29:07', 1, NULL)[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 255ms (DB: 1) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-02 00:29:07) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mStatus Load (0.8ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:19:07') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-02 07:29:07', "perishable_token" = 'mkI7-SrWvryWgHsFyFqz', "last_request_at" = '2009-09-02 07:29:07' WHERE "id" = 1[0m
+Completed in 34ms (View: 16, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-02 00:29:44) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Load (0.9ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:19:44') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-02 07:29:44', "perishable_token" = 'pDGTQhP4hOY7ucqaEET2', "last_request_at" = '2009-09-02 07:29:44' WHERE "id" = 1[0m
+Completed in 122ms (View: 25, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing UsersController#1 (for 127.0.0.1 at 2009-09-02 00:29:46) [GET]
+  Parameters: {"action"=>"1", "id"=>"new", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, edit, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-09-02 00:29:52) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:19:52') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-02 07:29:52', "perishable_token" = 'AIbshla2nmFz_TZfpcVu', "last_request_at" = '2009-09-02 07:29:52' WHERE "id" = 1[0m
+Completed in 30ms (View: 23, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-09-02 00:29:58) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"this should work"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Create (0.3ms)[0m   [0;1mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-02 07:29:58', NULL, '2009-09-02 07:29:58', 1, 'this should work')[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 22ms (DB: 1) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-02 00:29:58) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Load (0.7ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:19:58') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-02 07:29:58', "perishable_token" = 'G0pNWzaik5lepnpzbnGZ', "last_request_at" = '2009-09-02 07:29:58' WHERE "id" = 1[0m
+Completed in 33ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-02 00:30:23) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mStatus Load (0.7ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:20:23') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-02 07:30:23', "perishable_token" = 'TcNtMiapFVRe5J1z3QoD', "last_request_at" = '2009-09-02 07:30:23' WHERE "id" = 1[0m
+Completed in 99ms (View: 18, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+  [4;35;1mStatus Load (1.2ms)[0m   [0mSELECT * FROM "statuses" [0m
+  [4;36;1mStatus Delete all (3.4ms)[0m   [0;1mDELETE FROM "statuses" WHERE ("id" IN (1)) [0m
+  [4;35;1mStatus Delete all (8.9ms)[0m   [0mDELETE FROM "statuses" WHERE ("id" IN (2)) [0m
+  [4;36;1mStatus Delete all (2.2ms)[0m   [0;1mDELETE FROM "statuses" WHERE ("id" IN (3)) [0m
+  [4;35;1mStatus Delete all (2.0ms)[0m   [0mDELETE FROM "statuses" WHERE ("id" IN (4)) [0m
+  [4;36;1mStatus Delete all (1.6ms)[0m   [0;1mDELETE FROM "statuses" WHERE ("id" IN (5)) [0m
+  [4;35;1mStatus Delete all (2.0ms)[0m   [0mDELETE FROM "statuses" WHERE ("id" IN (6)) [0m
+  [4;36;1mStatus Delete all (2.1ms)[0m   [0;1mDELETE FROM "statuses" WHERE ("id" IN (7)) [0m
+  [4;35;1mStatus Delete all (2.3ms)[0m   [0mDELETE FROM "statuses" WHERE ("id" IN (8)) [0m
+  [4;36;1mStatus Delete all (2.5ms)[0m   [0;1mDELETE FROM "statuses" WHERE ("id" IN (9)) [0m
+  [4;35;1mStatus Delete all (2.0ms)[0m   [0mDELETE FROM "statuses" WHERE ("id" IN (10)) [0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" [0m
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-02 00:32:02) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:22:02') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-02 07:32:02', "perishable_token" = 'OlQQTRIshV6dHhg5GMok', "last_request_at" = '2009-09-02 07:32:02' WHERE "id" = 1[0m
+Completed in 30ms (View: 13, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-09-02 00:32:06) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:22:06') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-02 07:32:06', "perishable_token" = 'plr8e4EIhmjNNuEVErpk', "last_request_at" = '2009-09-02 07:32:06' WHERE "id" = 1[0m
+Completed in 97ms (View: 90, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-09-02 00:32:11) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"First fake tweet!"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Create (0.3ms)[0m   [0;1mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-02 07:32:11', NULL, '2009-09-02 07:32:11', 1, 'First fake tweet!')[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 22ms (DB: 1) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-02 00:32:11) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Load (0.3ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:22:11') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-02 07:32:11', "perishable_token" = 'dOlHwhkef3kyqXe460Jz', "last_request_at" = '2009-09-02 07:32:11' WHERE "id" = 1[0m
+Completed in 33ms (View: 16, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2009-09-02 00:32:16) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"statuses"}
+Rendering template within layouts/application
+Rendering statuses/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:22:16') [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-09-02 07:32:16', "perishable_token" = 'yeUpP00BvKvAD7e3e6jR', "last_request_at" = '2009-09-02 07:32:16' WHERE "id" = 1[0m
+Completed in 32ms (View: 24, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2009-09-02 00:32:20) [POST]
+  Parameters: {"commit"=>"Submit", "action"=>"create", "authenticity_token"=>"FOT1ns8ii35NQ+DYltQUk3eoki7mWEnyREuI/lbb9Ik=", "user_id"=>"1", "controller"=>"statuses", "status"=>{"content"=>"Second fake tweet!"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Create (0.3ms)[0m   [0;1mINSERT INTO "statuses" ("created_at", "replyto_id", "updated_at", "user_id", "content") VALUES('2009-09-02 07:32:20', NULL, '2009-09-02 07:32:20', 1, 'Second fake tweet!')[0m
+Redirected to http://0.0.0.0:3000/users/1/statuses
+Completed in 22ms (DB: 1) | 302 Found [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2009-09-02 00:32:20) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mStatus Load (0.4ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering statuses/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:22:20') [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-02 07:32:20', "perishable_token" = 'z0zwtLFImWsygNZfbnxe', "last_request_at" = '2009-09-02 07:32:20' WHERE "id" = 1[0m
+Completed in 95ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/users/1/statuses]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-09-02 00:32:43) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.1ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Status with ID=1):
+  app/controllers/statuses_controller.rb:22:in `show'
+
+Rendered rescues/_trace (31.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-09-02 00:32:46) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mStatus Load (0.1ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses"."id" = 2) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Status with ID=2):
+  app/controllers/statuses_controller.rb:22:in `show'
+
+Rendered rescues/_trace (105.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-09-02 00:33:13) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.1ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 10) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Status with ID=10):
+  app/controllers/statuses_controller.rb:22:in `show'
+
+Rendered rescues/_trace (31.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-09-02 00:33:17) [GET]
+  Parameters: {"action"=>"show", "id"=>"9", "user_id"=>"1", "controller"=>"statuses"}
+  [4;35;1mStatus Load (0.1ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses"."id" = 9) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Status with ID=9):
+  app/controllers/statuses_controller.rb:22:in `show'
+
+Rendered rescues/_trace (105.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+  [4;35;1mStatus Load (0.5ms)[0m   [0mSELECT * FROM "statuses" [0m
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-09-02 00:33:42) [GET]
+  Parameters: {"action"=>"show", "id"=>"11", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:23:42') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-02 07:33:42', "perishable_token" = '5RfHiAkuMz_UOda_uoBp', "last_request_at" = '2009-09-02 07:33:42' WHERE "id" = 1[0m
+Completed in 30ms (View: 22, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/11]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2009-09-02 00:33:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"12", "user_id"=>"1", "controller"=>"statuses"}
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 12) [0m
+Rendering template within layouts/application
+Rendering statuses/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-09-02 07:23:44') [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-09-02 07:33:44', "perishable_token" = 'dqC9jIOzVdDI6petMZtE', "last_request_at" = '2009-09-02 07:33:44' WHERE "id" = 1[0m
+Completed in 97ms (View: 89, DB: 1) | 200 OK [http://0.0.0.0/users/1/statuses/12]
