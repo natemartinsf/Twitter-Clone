@@ -1,0 +1,5 @@
+<div class="status">
+	<span class="user"><%=h @user.login%></span>
+	<%=h status.content %>
+	<div class="date"><%= time_ago_in_words(status.created_at) %> ago </div>
+</div>

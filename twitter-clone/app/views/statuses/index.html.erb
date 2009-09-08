@@ -5,17 +5,15 @@
 <div class="content">
 	<% if @user == @current_user%>
 		<H2 id="form_label">What's up?</H2>
-		<% form_for @status, :url => newstatus_url do |f| %>
+		<% form_for @status, :url => statuses_url do |f| %>
 		  <%= f.error_messages %>
 		  <%= f.text_area :content, :size =>"40x2" %><br />
 
 		  <%= f.submit "update" %>
-	
+
 		<% end %>
 		<hr/>
 	<% end %>
 	<h2>Home</h2>
-	<% @statuses.each do |status| %>
-		<div class="status"><span class="user"><%=h @user.login%></span><%=h status.content %></div>
-	<% end %>
+	 <%= render :partial => "status", :collection => @statuses, :locals => {:user=>@user} -%>
 </div>

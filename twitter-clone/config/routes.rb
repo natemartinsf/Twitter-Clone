@@ -44,17 +44,19 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resource :account, :controller => "users"
   map.resources :users
-  map.resources :users do |user|
-    #user.resources :statuses, :except => [:edit, :update, :destroy]
-  end
+
   map.statuses ':login', 
-    :conditions => { :method => :get },
     :controller => "statuses",
     :action=> "index"
-  map.newstatus ':login',
-    :conditions => { :method => :post },
+    
+  map.status ':login/statuses/:id',
     :controller => "statuses",
-    :action=> "create"
+    :action=> "show"
+    
+#  map.newstatus ':login',
+#    :conditions => { :method => :post },
+#    :controller => "statuses",
+#    :action=> "create"
 
   
   map.connect ':controller/:action/:id'
