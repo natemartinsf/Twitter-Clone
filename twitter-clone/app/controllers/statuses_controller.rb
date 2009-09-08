@@ -1,16 +1,22 @@
 class StatusesController < ApplicationController
+  before_filter :current_user
+  
   def index
-    @statuses = User.find(params[:user_id]).statuses.all
+    @status = Status.new
+    @user = User.find(:first,
+                      :conditions => ["UPPER(login) = ?", params[:login].upcase])
+    @statuses = @user.last_n_statuses(25)
   end
 
   def create
     @status = Status.new(params[:status])
-    @status.user = User.find(params[:user_id])
+    @status.user = @user = User.find(:first,
+                      :conditions => ["login = ?", params[:login]])
     if @status.save
       flash[:notice] = "Status updated!"
-      redirect_back_or_default user_statuses_url
+      redirect_back_or_default statuses_url
     else
-      render :action => :new
+      render :action => :index
     end
   end
 
@@ -19,6 +25,7 @@ class StatusesController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @status = Status.find(params[:id])
   end
 

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090901054419
+# Schema version: 20090903043234
 #
 # Table name: statuses
 #
@@ -21,5 +21,7 @@ class Status < ActiveRecord::Base
              :foreign_key => "replyto_id"
   has_many :mentions
   has_and_belongs_to_many :hashtags
+   
+  
              
 end

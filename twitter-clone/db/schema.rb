@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090901054419) do
+ActiveRecord::Schema.define(:version => 20090903043234) do
 
   create_table "hashtags", :force => true do |t|
     t.string   "tag"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20090901054419) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "following_id"
   end
 
 end

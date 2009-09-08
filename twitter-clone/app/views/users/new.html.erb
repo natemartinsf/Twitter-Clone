@@ -1,7 +1,21 @@
-<h1>Register</h1>
+<% content_for :title do -%>
+Join
+<%end -%>
+
+<div class="login_or_register">
+	<div class="login_side">
+		<H2>Already a member?</H2><br />
+		<%= link_to "Sign in!", new_user_session_path %>
+	</div>
+	<div class="register_form">
+		<H2>Join TwitClone!</H2>
+		<% form_for @user, :url => account_path do |f| %>
+		  <%= f.error_messages %>
+		  <%= render :partial => "form", :object => f %>
+		  <%= f.submit "Register" %>
+		<% end %>
+	</div>
+
+
+</div> 
  
-<% form_for @user, :url => account_path do |f| %>
-  <%= f.error_messages %>
-  <%= render :partial => "form", :object => f %>
-  <%= f.submit "Register" %>
-<% end %>

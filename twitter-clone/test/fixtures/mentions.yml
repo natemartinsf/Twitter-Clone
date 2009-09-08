@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090901054419
+# Schema version: 20090903043234
 #
 # Table name: mentions
 #
