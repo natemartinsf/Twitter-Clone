@@ -53,6 +53,11 @@ ActionController::Routing::Routes.draw do |map|
     :controller => "statuses",
     :action=> "show"
     
+  map.follow '/follow/:login',
+    :controller => "users",
+    :action => "follow"
+
+    
 #  map.newstatus ':login',
 #    :conditions => { :method => :post },
 #    :controller => "statuses",

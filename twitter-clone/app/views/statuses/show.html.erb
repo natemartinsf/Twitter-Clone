@@ -1,2 +1,9 @@
-<h1>Statuses#show</h1>
-<%= @status.content %>
+<div class="status detail">
+		
+		<%=h @status.content %>
+		<div class="date">
+			<%= time_ago_in_words(@status.created_at) %> ago
+		</div>
+		<hr/>
+		<div class="user"><a href="<%= statuses_path :login=>@user.login %>"><%=h @user.login%></a></div>
+</div>

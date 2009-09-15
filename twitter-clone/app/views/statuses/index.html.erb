@@ -3,7 +3,7 @@
 <%end -%>
 
 <div class="content">
-	<% if @user == @current_user%>
+	<% if @user == @current_user %>
 		<H2 id="form_label">What's up?</H2>
 		<% form_for @status, :url => statuses_url do |f| %>
 		  <%= f.error_messages %>
@@ -17,3 +17,11 @@
 	<h2>Home</h2>
 	 <%= render :partial => "status", :collection => @statuses, :locals => {:user=>@user} -%>
 </div>
+
+<div class="sidebar">
+	<% if @user != @current_user && (not @current_user.is_following?(@user)) %>
+		<% form_tag( {:controller => "users", :action => "follow"}, :method => "post") do %>
+		 <label for="follow">Follow <%= @user.login %></label>
+		 <%= submit_tag "Follow", :id => "follow", :name => "follow", :class => "form_submit", :disabled => false, :disable_with => "Please wait..." %>
+		<% end -%>
+	<% end %>

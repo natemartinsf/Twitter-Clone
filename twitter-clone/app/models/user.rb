@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090903043234
+# Schema version: 20090914064127
 #
 # Table name: users
 #
@@ -20,24 +20,27 @@
 #  last_login_ip       :string(255)
 #  created_at          :datetime
 #  updated_at          :datetime
-#  following_id        :integer
 #
 
 class User < ActiveRecord::Base
   has_many :mentions
   has_many :statuses
-  belongs_to :following,
-             :class_name => "User",
-             :foreign_key => "following_id"
-  has_many   :followers,
-             :class_name => "User",
-             :foreign_key => "following_id"
+  has_and_belongs_to_many :followers, :class_name => "User", :join_table => "relationships", :foreign_key => "follower_id", :association_foreign_key => "following_id"
+  
   acts_as_authentic do |c|
    # c.my_config_option = my_value # for available options see documentation in: Authlogic::ActsAsAuthentic
   end
   
   def last_n_statuses(number=25)
     return self.statuses.find(:all, :limit => number, :order => "created_at DESC")
+  end
+  
+  def is_following?(user)
+    begin
+      return user.followers.find(self.id) == self
+    rescue
+      return false
+    end
   end
   
 end

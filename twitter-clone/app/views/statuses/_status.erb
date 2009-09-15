@@ -1,5 +1,8 @@
 <div class="status">
 	<span class="user"><%=h @user.login%></span>
 	<%=h status.content %>
-	<div class="date"><%= time_ago_in_words(status.created_at) %> ago </div>
+	<div class="date">
+		<a href="<%= status_path(:login=>status.user.login, :id=>status.id) %>" id="status_<%= status_counter -%>">
+		<%= time_ago_in_words(status.created_at) %> ago </a>
+	</div>
 </div>

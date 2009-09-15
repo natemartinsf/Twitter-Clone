@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>TwitClone::test</title>
+  <link href="/stylesheets/screen.css?1252392878" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/prototype.js?1251511019" type="text/javascript"></script>
+<script src="/javascripts/effects.js?1251511019" type="text/javascript"></script>
+<script src="/javascripts/dragdrop.js?1251511019" type="text/javascript"></script>
+<script src="/javascripts/controls.js?1251511019" type="text/javascript"></script>
+<script src="/javascripts/application.js?1251511019" type="text/javascript"></script>
+</head>
+<body>
+ 
+<div id="heading">
+	<H1 id="logo" title="TwitClone"><span>TwitClone</span></H1>
+	<span id="registration">
+	  <a href="/account">My Account</a> |
+	  <a href="/user_session" onclick="if (confirm('Are you sure you want to logout?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Logout</a>
+	
+	</span>
+</div>
+
+
+ 
+
+<div class="content">
+	
+		<H2 id="form_label">What's up?</H2>
+		<form action="http://www.example.com/test" class="new_status" id="new_status" method="post">
+		  
+		  <textarea cols="40" id="status_content" name="status[content]" rows="2"></textarea><br />
+
+		  <input id="status_submit" name="commit" type="submit" value="update" />
+
+		</form>
+		<hr/>
+	
+	<h2>Home</h2>
+	 </div>
+ 
+</body>
+</html>

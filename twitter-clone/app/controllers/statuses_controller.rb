@@ -22,12 +22,7 @@ class StatusesController < ApplicationController
   end
 
 
-  private
-  
-  def user_from_login
-    @user = User.find(:first,
-                    :conditions => ["UPPER(login) = ?", params[:login].upcase])
-  end
+
   
   
 end

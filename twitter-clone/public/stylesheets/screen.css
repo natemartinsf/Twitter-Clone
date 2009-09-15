@@ -58,6 +58,13 @@ span#registration {
 	color: #bdf;
 }
 
+div.date a { color: #333;
+	text-decoration: none;
+	text-shadow: #FFF 0px 1px 1px; }
+div.date a:visited { color: #333;
+	text-shadow: #FFF 0px 1px 1px; }
+div.date a:hover { color: #55C; text-shadow: #FFF 0px 1px 1px;}
+
 div.content {
 	margin-left: auto;
 	margin-right: auto;
@@ -68,6 +75,24 @@ div.content {
 		    from(#E0E0EE), to(#C0C0C0));
 }
 
+div.sidebar {
+	moz-border-radius: 8px; -webkit-border-radius: 8px; border: 10px solid rgba(150,150,180,0.6); padding: 10px;
+	
+	width: 12em;
+	height: 28em;
+	position: absolute;
+	right: 0.5em;
+	top: 4.5em;
+	background: -webkit-gradient(linear, left top, left bottom, 
+		    from(rgba(150,150,180,0.1)), to(rgba(150,150,180,0.5)));
+}
+
+div.sidebar input {
+	position:relative;
+	right: -2em;
+}
+
+
 div.status {
 	margin-left: auto;
 	margin-right: auto;
@@ -77,6 +102,18 @@ div.status {
 	background: -webkit-gradient(linear, left top, left bottom, 
 		    from(#D0D0D0), to(#B0B0B0));
 }
+
+div.detail {
+	font-size: 150%;
+	line-height: 110%;
+}
+
+div.detail a { color: #333;
+	text-decoration: none;
+	text-shadow: #FFF 0px 1px 1px; }
+div.detail a:visited { color: #333;
+	text-shadow: #FFF 0px 1px 1px; }
+div.detail a:hover { color: #55C; text-shadow: #FFF 0px 1px 1px;}
 
 div.date {
 	font-size: 60%;
@@ -119,25 +156,24 @@ input#status_submit {
 	float: right;
 }
 
-input#status_submit:hover {
+input#status_submit:hover, div.sidebar input:hover {
 	color: #6060B0; text-shadow: #bbf 0px 0px 10px;
 }
 
-input#status_submit:active {
+input#status_submit:active, div.sidebar input:active {
 	border: 1px solid #A0A0A0;
 	background: -webkit-gradient(linear, left top, left bottom, 
 		    from(#B0B0B0), to(#C0C0C0));
 }
 
-input#user_session_submit, input#user_submit {
+input#user_session_submit, input#user_submit, div.sidebar input{
 	moz-border-radius: 5px; -webkit-border-radius: 5px; border: 1px solid #A0A0E0;
 	padding: 0.25em 0.5em 0.25em 0.5em;
 	background: -webkit-gradient(linear, left top, left bottom, 
 		    from(#F0F0F0), to(#D0D0D0));
 	color: #707070; text-shadow: #eee 0px 1px 0px;
 	width: 5em;
-	position: relative;
-	
+	position: relative;	
 }
 
 input#user_session_submit {

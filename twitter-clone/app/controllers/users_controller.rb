@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update]
+  before_filter :require_user, :only => [:follow, :show, :edit, :update]
+  before_filter :current_user, :only => [:follow]
+  before_filter :user_from_login, :only => [:follow]
   
   def new
     @user = User.new
@@ -14,6 +16,13 @@ class UsersController < ApplicationController
     else
       render :action => :new
     end
+  end
+  
+  def follow
+    @user.followers << @current_user
+    @user.save
+    flash[:notice] = "You are now following " + @user.login
+    redirect_back_or_default statuses_url
   end
   
   def show

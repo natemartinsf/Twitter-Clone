@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090903043234) do
+ActiveRecord::Schema.define(:version => 20090914064127) do
 
   create_table "hashtags", :force => true do |t|
     t.string   "tag"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20090903043234) do
   create_table "mentions", :force => true do |t|
     t.integer  "status_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "following_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,7 +63,6 @@ ActiveRecord::Schema.define(:version => 20090903043234) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "following_id"
   end
 
 end
