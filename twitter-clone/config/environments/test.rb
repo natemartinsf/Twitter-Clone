@@ -26,3 +26,10 @@ config.action_mailer.delivery_method = :test
 # This is necessary if your schema can't be completely dumped by the schema dumper,
 # like if you have constraints or database-specific column types
 # config.active_record.schema_format = :sql
+
+# There is some duplication between test.rb and cucumber.rb.
+config.gem "cucumber",                :lib => false,          :version => ">=0.3.11"
+config.gem "webrat",                  :lib => false,          :version => ">=0.4.4"
+config.gem "rspec",                   :lib => false,          :version => ">=1.2.6"
+config.gem "rspec-rails",             :lib => 'spec/rails',   :version => ">=1.2.6"
+config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :version => ">=1.2.2", :source => "http://gems.github.com"

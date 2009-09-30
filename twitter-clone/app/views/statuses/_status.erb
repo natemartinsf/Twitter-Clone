@@ -1,5 +1,5 @@
 <div class="status">
-	<span class="user"><%=h @user.login%></span>
+	<h3 class="user"><%=h @user.login%></h3>
 	<%=h status.content %>
 	<div class="date">
 		<a href="<%= status_path(:login=>status.user.login, :id=>status.id) %>" id="status_<%= status_counter -%>">

@@ -54,8 +54,14 @@ ActionController::Routing::Routes.draw do |map|
     :action=> "show"
     
   map.follow '/follow/:login',
+    :conditions => { :method => :post },
     :controller => "users",
     :action => "follow"
+    
+  map.remove '/remove/:login',
+    :conditions => { :method => :delete },
+    :controller => "users",
+    :action => "remove"
 
     
 #  map.newstatus ':login',

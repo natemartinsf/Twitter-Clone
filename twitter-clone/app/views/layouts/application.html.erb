@@ -12,6 +12,9 @@
  
 <div id="heading">
 	<H1 id="logo" title="TwitClone"><span>TwitClone</span></H1>
+</div>
+
+<div id="login_logout">
 	<span id="registration"><% if !current_user %>
 	  <%= link_to "Log in", new_user_session_path %> |
 	  <%= link_to "Join TwitClone!", new_account_path %>

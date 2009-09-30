@@ -36,10 +36,16 @@ class User < ActiveRecord::Base
   end
   
   def is_following?(user)
-    begin
-      return user.followers.find(self.id) == self
-    rescue
-      return false
+    user.followers.exists?(self.id)
+  end
+  
+  def add_follower(user)
+    self.followers << user
+  end
+  
+  def remove_follower(user)
+    if user
+      self.followers.delete(user)
     end
   end
   

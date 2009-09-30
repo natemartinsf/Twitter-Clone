@@ -13,11 +13,23 @@ Feature: Manage logins
 		And I press "Register"
 		Then I should see "Account registered!"
 	
-	Scenario: Logging in
-	  Given a valid user   
+
+		
+	Scenario: log in
+  	Given a valid user   
 		And I am on the login page 
-	  When I submit the login form
-	  Then I should see "Login successful!"
+    When I login
+    Then I should see "Login successful!"
+    And I should see "Logout"
+		And the user should be logged in
+
+  Scenario: log out
+    Given I am logged in
+    And I am on the homepage
+    When I follow "Logout"
+    Then I should see "Logout successful!"
+    And I should see "Join"
+    And I should see "Log in"
 	
 	Scenario: Logging in with wrong password
 		Given I am on the login page
