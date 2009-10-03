@@ -5,7 +5,7 @@
 <div class="content">
 	<div class="sidebar">
 		<% if @current_user && (@user != @current_user) %>
-			<% if @current_user.is_following?(@user) %>
+			<% if @following %>
 				<%= link_to "Remove", remove_path, :method=>:delete %>
 			<% else -%>
 				<%= link_to "Follow", follow_path, :method=>:post %>

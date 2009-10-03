@@ -44,9 +44,11 @@ class User < ActiveRecord::Base
   end
   
   def remove_follower(user)
-    if user
-      self.followers.delete(user)
-    end
+    logger.info "now the user is:"
+    logger.info user
+    logger.info "deleting"
+    self.followers.delete(user)
+
   end
   
 end

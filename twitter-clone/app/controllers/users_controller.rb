@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:follow, :show, :edit, :update]
-  before_filter :current_user, :only => [:follow]
+  before_filter :current_user, :only => [:follow, :remove]
   before_filter :user_from_login, :only => [:follow, :remove]
   
   def new
@@ -26,6 +26,8 @@ class UsersController < ApplicationController
   end
   
   def remove
+    logger.info "the user is:"
+    logger.info @user
     @user.remove_follower(@current_user)
     @user.save
     flash[:notice] = "You are no longer following " + @user.login

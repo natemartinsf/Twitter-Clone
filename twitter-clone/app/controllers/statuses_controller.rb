@@ -14,6 +14,11 @@ class StatusesController < ApplicationController
       @status = Status.new
     end
     @statuses = @user.last_n_statuses(25)
+    if @user != @current_user
+      @following = @current_user.is_following?(@user)
+      logger.info "following"
+      logger.info @following
+    end
   end
 
 
