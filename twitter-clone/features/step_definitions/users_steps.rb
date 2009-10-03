@@ -5,8 +5,10 @@ Then /^I should be following "([^\"]*)"$/ do |login|
 end
 
 
-Then /^I should not be following "([^\"]*)"$/ do |arg1|
-  pending
+Then /^I should not be following "([^\"]*)"$/ do |login|
+  followed = User.find(:first,
+                  :conditions => ["login = ?", login])
+  @custom_user.is_following?(followed).should == false
 end
 
 
