@@ -37,6 +37,8 @@ module NavigationHelpers
     when /the status page for "(.*)"/i 
       statuses_path(:login=>$1)
     
+    when /the hashtag page for "(.*)"/i 
+      hashtag_path(:hashtag=>$1)    
 
     when /the new frooble page/
       new_frooble_path

@@ -26,8 +26,6 @@ class UsersController < ApplicationController
   end
   
   def remove
-    logger.info "the user is:"
-    logger.info @user
     @user.remove_follower(@current_user)
     @user.save
     flash[:notice] = "You are no longer following " + @user.login

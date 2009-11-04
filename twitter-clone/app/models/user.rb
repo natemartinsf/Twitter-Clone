@@ -23,9 +23,13 @@
 #
 
 class User < ActiveRecord::Base
+  after_create :follow_myself
+  
   has_many :mentions
   has_many :statuses
   has_and_belongs_to_many :followers, :class_name => "User", :join_table => "relationships", :foreign_key => "follower_id", :association_foreign_key => "following_id"
+  has_and_belongs_to_many :followings, :class_name => "User", :join_table => "relationships", :foreign_key => "following_id", :association_foreign_key => "follower_id"
+
   
   acts_as_authentic do |c|
    # c.my_config_option = my_value # for available options see documentation in: Authlogic::ActsAsAuthentic
@@ -35,12 +39,20 @@ class User < ActiveRecord::Base
     return self.statuses.find(:all, :limit => number, :order => "created_at DESC")
   end
   
+  def last_n_followings_statuses(number=25)
+    logger.info "last n followings"
+    logger.info self.followings
+    return Status.find(:all, :limit => number, :order => "created_at DESC", :conditions => { :user_id => self.followings } )
+  end
+  
   def is_following?(user)
     user.followers.exists?(self.id)
   end
   
   def add_follower(user)
     self.followers << user
+    logger.info "followers after adding:"
+    logger.info self.followers
   end
   
   def remove_follower(user)
@@ -48,7 +60,21 @@ class User < ActiveRecord::Base
     logger.info user
     logger.info "deleting"
     self.followers.delete(user)
-
+  end
+  
+  def follow_myself
+    self.add_follower(self)
+    self.save
+  end
+  
+  def followers_count
+    #minus one to not count myself
+    return (self.followers.count - 1)
+  end
+  
+  def following_count
+    #minus one to not count myself
+    return (self.followings.count - 1)
   end
   
 end

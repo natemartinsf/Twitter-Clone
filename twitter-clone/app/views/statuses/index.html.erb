@@ -13,18 +13,7 @@
 		<% end %>
 	</div>
 	<div class="statuses">
-		<% if @user == @current_user %>
-			<H2 id="form_label">What's up?</H2>
-			<% form_for @status, :url => statuses_url do |f| %>
-			  <%= f.error_messages %>
-			  <%= f.text_area :content, :size =>"40x2" %><br />
-
-			  <%= f.submit "update" %>
-
-			<% end %>
-			<hr/>
-		<% end %>
-		<h2>Home</h2>
+		<h2><%=h @user.login%></h2>
 		 <%= render :partial => "status", :collection => @statuses, :locals => {:user=>@user} -%>
 	</div>
 	

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090914064127) do
+ActiveRecord::Schema.define(:version => 20091101160812) do
 
   create_table "hashtags", :force => true do |t|
     t.string   "tag"
@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20090914064127) do
     t.datetime "updated_at"
   end
 
-  create_table "hashtags_statuses", :force => true do |t|
+  create_table "hashtags_statuses", :id => false, :force => true do |t|
     t.integer  "status_id"
     t.integer  "hashtag_id"
     t.datetime "created_at"

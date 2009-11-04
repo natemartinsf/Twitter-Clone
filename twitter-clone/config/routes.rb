@@ -44,14 +44,10 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resource :account, :controller => "users"
   map.resources :users
-
-  map.statuses ':login', 
+  
+  map.hashtag 'tags/:hashtag',
     :controller => "statuses",
-    :action=> "index"
-    
-  map.status ':login/statuses/:id',
-    :controller => "statuses",
-    :action=> "show"
+    :action => "tag"
     
   map.follow '/follow/:login',
     :conditions => { :method => :post },
@@ -62,8 +58,25 @@ ActionController::Routing::Routes.draw do |map|
     :conditions => { :method => :delete },
     :controller => "users",
     :action => "remove"
-
     
+  map.status ':login/statuses/:id',
+    :conditions => { :method => [:get, :post] },
+    :controller => "statuses",
+    :action=> "show"
+
+  map.confirm_delete_status ':login/statuses/:id/delete',
+    :conditions => { :method => :get },
+    :controller => "statuses",
+    :action => "confirm_delete"
+      
+  map.delete_status ':login/statuses/:id/delete',
+    :conditions => { :method => :delete },
+    :controller => "statuses",
+    :action=> "delete"
+        
+  map.statuses ':login', 
+    :controller => "statuses",
+    :action => "index"
 #  map.newstatus ':login',
 #    :conditions => { :method => :post },
 #    :controller => "statuses",

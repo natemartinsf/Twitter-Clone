@@ -1,0 +1,16 @@
+<% content_for :title do -%>
+<%=h @tag.tag -%>
+<%end -%>
+
+<div class="content">
+	<div class="sidebar">
+
+	</div>
+	<div class="statuses">
+		<h2><%=h @tag.tag%></h2>
+		 <%= render :partial => "status", :collection => @tag.statuses -%>
+	</div>
+	
+	
+</div>
+

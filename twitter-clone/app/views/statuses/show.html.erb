@@ -1,9 +1,8 @@
 <div class="status detail">
 		
-		<%=h @status.content %>
-		<div class="date">
-			<%= time_ago_in_words(@status.created_at) %> ago
-		</div>
-		<hr/>
+		 <%= render :partial => "statusDetail", :object => @status, :locals => {:user=>@user} -%>
 		<div class="user"><a href="<%= statuses_path :login=>@user.login %>"><%=h @user.login%></a></div>
+		<% if @current_user && (@user == @current_user)%>
+		    <div class="delete"><a href="<%= confirm_delete_status_path(:login=>@user.login, :id=>@status.id) %>">Delete</a></div>
+		<% end %>
 </div>

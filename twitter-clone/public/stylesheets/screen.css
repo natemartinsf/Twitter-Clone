@@ -247,6 +247,11 @@ div.register_side, div.login_side, div.sidebar {
 	padding: 10px;
 }
 
+hr {
+	clear: left;
+}
+
+
 
 div.register_side {
 	height: 8em;
