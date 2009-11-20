@@ -45,6 +45,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :account, :controller => "users"
   map.resources :users
   
+  map.replies 'replies',
+    :controller => "home",
+    :action => "replies"
+  
   map.hashtag 'tags/:hashtag',
     :controller => "statuses",
     :action => "tag"
@@ -54,10 +58,30 @@ ActionController::Routing::Routes.draw do |map|
     :controller => "users",
     :action => "follow"
     
+  map.followers '/:login/followers/',
+    :controller => "users",
+    :action => "followers"
+  
+  map.following '/:login/following/',
+    :controller => "users",
+    :action => "following"
+    
+  map.ajax_followers '/ajax/:login/followers/',
+    :controller => "users",
+    :action => "ajax_followers"
+
+  map.ajax_following '/ajax/:login/following/',
+    :controller => "users",
+    :action => "ajax_following"
+    
   map.remove '/remove/:login',
     :conditions => { :method => :delete },
     :controller => "users",
     :action => "remove"
+    
+  map.search '/find/',
+    :controller => "statuses",
+    :action => "find"
     
   map.status ':login/statuses/:id',
     :conditions => { :method => [:get, :post] },

@@ -2,13 +2,13 @@
 Login
 <%end -%>
 
-<div class="login_or_register">
-	<div class="register_side">
-		<H2>Create an account</H2><br />
-		<%= link_to "Join!", new_account_path %>
+<div class="login_or_register roundbox" id="login">
+	<div class="sidebar register_side">
+		<H2>No account?</H2><br />
+		<%= link_to "Join!", new_account_path, :class=>"button" %>
 	</div>
 	<div class="login_form">
-		<H2>Sign in to TwitClone</H2>
+		<H2>Sign in!</H2>
 		<% form_for @user_session, :url => user_session_path do |f| %>
 		  <%= f.error_messages %>
 		  <%= f.label :login %>
@@ -17,7 +17,7 @@ Login
 		  <%= f.password_field :password %><br />
 		  <span id="remember_me"><%= f.label :remember_me %>
 		  <%= f.check_box :remember_me %></span><br />
-		  <%= f.submit "Login" %>
+		  <%= f.submit "Login", :class=>"button" %>
 		<% end %>
 	</div>
 

@@ -2,13 +2,25 @@
 <%=h @tag.tag -%>
 <%end -%>
 
-<div class="content">
-	<div class="sidebar">
+<% content_for :body_id do -%>
+home
+<%end -%>
+<% content_for :header_id do -%>
+home
+<%end -%>
 
-	</div>
+<div class="heading"></div>
+<div class="content roundbox">
+		<% if @current_user%>
+            <%= render :partial => "/home/sidebar", :locals => {:page=>:tag, :user=>@current_user, :topics=>@topics} -%>
+		<% else %>
+		    <%= render :partial => "/home/loggedOutSidebar", :locals => {:topics=>@topics} -%>
+        
+		<% end %>
+
 	<div class="statuses">
-		<h2><%=h @tag.tag%></h2>
-		 <%= render :partial => "status", :collection => @tag.statuses -%>
+		<h2>#<%=h @tag.tag%></h2>
+		 <%= render :partial => "/home/status", :collection => @tag.statuses, :locals => {:user=>@user} -%>
 	</div>
 	
 	

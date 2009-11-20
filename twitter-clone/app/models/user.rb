@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
     return self.statuses.find(:all, :limit => number, :order => "created_at DESC")
   end
   
+  def last_status
+    return self.statuses.find(:first, :order => "created_at DESC")
+  end
+  
   def last_n_followings_statuses(number=25)
     logger.info "last n followings"
     logger.info self.followings
@@ -72,9 +76,17 @@ class User < ActiveRecord::Base
     return (self.followers.count - 1)
   end
   
+  def followers_filtered
+    self.followers.reject {|follower| follower==self}
+  end
+  
   def following_count
     #minus one to not count myself
     return (self.followings.count - 1)
+  end
+  
+  def followings_filtered
+    self.followings.reject {|following| following==self}
   end
   
 end

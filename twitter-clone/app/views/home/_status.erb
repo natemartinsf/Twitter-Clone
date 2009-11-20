@@ -1,6 +1,6 @@
 <div class="status">
-	<h3 class="user"><%=h status.user.login%></h3>
-	<%= status.content %>
+	<div class="text"><h3 class="user"><%= link_to status.user.login, statuses_path(:login=>status.user.login) %>:</h3>
+	<p><%= status.content %></p></div>
 	<div class="date">
 		<a href="<%= status_path(:login=>status.user.login, :id=>status.id) %>" id="status_<%= status_counter -%>">
 		<%= time_ago_in_words(status.created_at) %> ago </a>

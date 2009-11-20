@@ -1,0 +1,14 @@
+<% if myself != following%>
+<div class="following">
+	<div class="text">
+	    <% if current_user==myself %>
+	        <%= link_to "Remove", remove_path, :method=>:delete, :class=>"button" %>
+	    <% end %>
+	    <h3 class="user"><%= link_to following.login, statuses_path(:login=>following.login) %>:</h3>
+	<p><%= following.last_status.content %></p></div>
+	<div class="date">
+		<a href="<%= status_path(:login=>following.login, :id=>following.last_status.id) %>" id="status_<%= following_counter -%>">
+		<%= time_ago_in_words(following.last_status.created_at) %> ago </a>
+	</div>
+</div>
+<% end %>

@@ -13,8 +13,13 @@ set :web_server_type,   :apache     # :apache, :nginx
 set :app_server_type,   :passenger  # :passenger, :mongrel
 set :db_server_type,    :mysql      # :mysql, :postgresql, :sqlite
 
+
+set :db_name, "rails"
+set :db_user, "root"
+set :db_password, ""
+
 # set :packages_for_project, %w(libmagick9-dev imagemagick libfreeimage3) # list of packages to be installed
-# set :gems_for_project, %w(rmagick mini_magick image_science) # list of gems to be installed
+ set :gems_for_project, %w(authlogic) # list of gems to be installed
 
 # Update these if you're not running everything on one host.
 role :app, domain

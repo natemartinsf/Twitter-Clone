@@ -11,4 +11,8 @@
 
 class Hashtag < ActiveRecord::Base
   has_and_belongs_to_many :statuses
+  
+  def self.recent_topics
+    Hashtag.find(:all, :limit => 10, :order => "created_at DESC")
+  end
 end

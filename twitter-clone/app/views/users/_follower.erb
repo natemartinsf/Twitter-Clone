@@ -1,0 +1,11 @@
+<% if myself != follower%>
+<div class="follower">
+	<div class="text">
+	    <h3 class="user"><%= link_to follower.login, statuses_path(:login=>follower.login) %>:</h3>
+	<p><%= follower.last_status.content %></p></div>
+	<div class="date">
+		<a href="<%= status_path(:login=>follower.login, :id=>follower.last_status.id) %>" id="status_<%= follower_counter -%>">
+		<%= time_ago_in_words(follower.last_status.created_at) %> ago </a>
+	</div>
+</div>
+<% end %>

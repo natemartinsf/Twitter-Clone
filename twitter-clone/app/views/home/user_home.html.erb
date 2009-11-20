@@ -1,22 +1,43 @@
-<div class="content">
-	<div class="sidebar">
-		<h3><%= @current_user.login %></h3>
-		<a href=""><span class="number"><%= @current_user.following_count %></span> following</a>
-		<a href=""><span class="number"><%= @current_user.followers_count %></span> followers</a>
-		<a href=""><span class="number"><%= @current_user.statuses.count %></span> tweets</a>
-	</div>
-	<div class="statuses">
-		<% if @current_user %>
-			<H2 id="form_label">What's up?</H2>
+<% content_for :title do -%>
+home
+<%end -%>
+
+<% content_for :js do%>
+<%= javascript_include_tag "user" %>
+<%= javascript_include_tag "menu" %>
+<% end %>
+
+<% content_for :body_id do -%>
+home
+<%end -%>
+<% content_for :header_id do -%>
+home
+<%end -%>
+
+
+
+
+
+<div class="content roundbox">
+    <%= render :partial => "sidebar", :locals => {:page=>:home, :user=>@current_user, :topics=>@topics} -%>
+
+	<div class="status_form">
+	    <% if @current_user %>
+	    <h2 id="count">140</h2>
+		
+			<H1 id="form_label">What do you want to say?</H1>
 				<% form_for @status, :url => statuses_url(:login =>@current_user.login) do |f| %>
 				  <%= f.error_messages %>
 				  <%= f.text_area :content, :size =>"40x2" %><br />
 
-				  <%= f.submit "update" %>
+				  <%= f.submit "update", :class=>"button", :disabled=>"true" %>
 
 				<% end %>
 			<hr/>
 		<% end %>
+	</div>
+	<div class="statuses">
+		
 		<h2>Home</h2>
 		 <%= render :partial => "status", :collection => @statuses -%>
 	</div>

@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:follow, :show, :edit, :update]
-  before_filter :current_user, :only => [:follow, :remove]
-  before_filter :user_from_login, :only => [:follow, :remove]
+  before_filter :current_user, :only => [:follow, :remove, :followers, :following]
+  before_filter :user_from_login, :only => [:follow, :remove, :followers, :following, :ajax_followers, :ajax_following]
+  before_filter :tags
   
   def new
     @user = User.new
@@ -30,6 +31,26 @@ class UsersController < ApplicationController
     @user.save
     flash[:notice] = "You are no longer following " + @user.login
     redirect_back_or_default statuses_url
+  end
+  
+  def followers
+    @followers = @user.followers
+  end
+  
+  def following
+    @following = @user.followings
+  end
+  
+  def ajax_followers
+    #@followers = @user.followers
+    @followers = @user.followers_filtered
+    render :layout => false
+  end
+  
+  def ajax_following
+    #@following = @user.followings
+    @following = @user.followings_filtered
+    render :layout => false
   end
   
   def show
