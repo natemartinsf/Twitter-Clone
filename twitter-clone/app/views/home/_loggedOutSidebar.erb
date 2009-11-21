@@ -1,9 +1,0 @@
-<div class="sidebar">
-    <span><% form_tag search_path, :method => 'get' do %>
-    <%= text_field_tag :search_query, params[:search_query] %>
-    <%= submit_tag "", :name => nil, :class=>"button" %>
-    <% end %></span>
-    <% if @topics != nil%>
-        <%= render :partial => "/home/topics", :locals => {:topics=>topics} -%>
-    <% end %>      
-</div>
