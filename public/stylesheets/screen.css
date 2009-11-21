@@ -794,7 +794,15 @@ div#search {
 
 div#search div#button{
   float: right;
-  margin-right: 1.15em;
+  margin-right: 1.1em;
+}
+
+ul.menu div#search div#button{
+  margin-right: 1.12em;
+}
+
+li#searchmenu{
+  height: 50px;
 }
 
 div#search input{
