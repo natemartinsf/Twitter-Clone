@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>TwitClone::<%= yield :title %></title>
+  <%= stylesheet_link_tag 'screen' %>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "jquery" %>
+  <%= yield :js %>
+</head>
+<body id=<% default_content_for :body_id do %>index <% end %> >
+ 
+<a href="/" id="header-<% default_content_for :header_id do %>index<% end %>" > </a>
+
+
+<div class="wrapper">
+    <div id="login_logout">
+	    <span id="registration">
+	        <% if !current_user %>
+	            <%= link_to "Log in", new_user_session_path %> |
+	            <%= link_to "Join TwitClone!", new_account_path %>
+	        <% else %>
+	            <%= link_to "My Account", account_path %> |
+	            <%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
+	        <% end %>
+	    </span>
+	</div>
+</div>
+
+<% if flash[:notice ]%>
+<p class="flash"><%= flash[:notice] %></p>
+<% end %>
+ 
+<%= yield  %>
+ 
+</body>
+</html>

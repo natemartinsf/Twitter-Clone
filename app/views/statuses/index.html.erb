@@ -1,0 +1,59 @@
+<% content_for :title do -%>
+<%=h @user.login -%>
+<%end -%>
+
+<% content_for :js do%>
+<%= javascript_include_tag "menu" %>
+<% end %>
+
+<% content_for :body_id do -%>
+home
+<%end -%>
+<% content_for :header_id do -%>
+home
+<%end -%>
+
+<div class="heading"></div>
+<div class="content roundbox">
+
+	<div class="sidebar">
+	    <% if @current_user && (@user != @current_user) %>
+			<% if @following %>
+			    <H3>You are following <%= @user.login %></H3>
+			    <br>
+				<%= link_to "Remove", remove_path, :method=>:delete, :class=>"button" %>
+			<% else -%>
+				<%= link_to "Follow", follow_path, :method=>:post, :class=>"button" %>
+			<% end %>
+		<% end %>
+		<ul id="info">
+    	    <li id="following" class="<%=@user.login%>">
+    	        <a href="<%= following_path :login=>@user.login %>"><span class="number"><%= @user.following_count %></span> following</a>
+    	    </li>
+    	    <li id="followers" class="<%=@user.login%>">
+    	        <a href="<%= followers_path :login=>@user.login %>"><span class="number"><%= @user.followers_count %></span> followers</a>
+    	    </li>
+        </ul>
+        
+        <div class="popup">
+            <div id="top"></div>
+            <div id="middle"></div>
+            <div id="bottom"></div>
+        </div>
+	    <% form_tag search_path, :method => 'get' do %>
+        <%= text_field_tag :search_query, params[:search_query] %>
+        <%= submit_tag "", :name => nil, :class=>"button" %>
+        <% end %>
+        <% if @topics != nil%>
+            <%= render :partial => "/home/topics", :locals => {:topics=>@topics} -%>
+        <% end %>
+		
+	</div>
+	<div class="statuses">
+		<h2><%=h @user.login%></h2><% if @current_user == @user%><h3>That's you!</h3><% end %>
+		 <%= render :partial => "/home/status", :collection => @statuses, :locals => {:user=>@user} -%>
+	</div>
+	
+	
+</div>
+

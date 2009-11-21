@@ -1,0 +1,7 @@
+ <div class="text">
+<p><%= statusDetail.content %></p></div>
+<hr/>
+<h3 class="user"><%= link_to statusDetail.user.login, statuses_path(:login=>statusDetail.user.login) %></h3>
+<div class="date">
+	<%= time_ago_in_words(statusDetail.created_at) %> ago 
+</div>

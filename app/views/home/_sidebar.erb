@@ -1,0 +1,24 @@
+<div class="sidebar">
+    <a href="<%= statuses_path :login=>user.login %>"><h2><%= user.login %></h2>
+    <h3><%= user.statuses.length%> statuses</h3></a>
+	<ul id="info">
+	    <li id="following" class="<%=user.login%>">
+	        <a href="<%= following_path :login=>user.login %>"><span class="number"><%= user.following_count %></span> following</a>
+	    </li>
+	    <li id="followers" class="<%=user.login%>">
+	        <a href="<%= followers_path :login=>user.login %>"><span class="number"><%= user.followers_count %></span> followers</a>
+	    </li>
+    </ul>
+    <%= render :partial => "/home/menu", :locals => {:page=>page, :user=>user} -%>
+    <hr/>
+    <% if @topics != nil%>
+        <%= render :partial => "/home/topics", :locals => {:topics=>topics} -%>
+    <% end %>      
+
+    <div class="popup">
+        <div id="top"></div>
+        <div id="middle"></div>
+        <div id="bottom"></div>
+    </div>
+</div>
+

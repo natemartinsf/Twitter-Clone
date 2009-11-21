@@ -1,0 +1,10 @@
+<h1>New Status</h1>
+ 
+<% form_for @status, :url => user_statuses_path do |f| %>
+  <%= f.error_messages %>
+  <%= f.label :content %><br />
+  <%= f.text_field :content %><br />
+  <br />
+  
+  <%= f.submit "Submit" %>
+<% end %>

@@ -1,0 +1,21 @@
+<% content_for :title do -%>
+<%=h @user.login -%>
+<%end -%>
+
+<% content_for :body_id do -%>
+home
+<%end -%>
+<% content_for :header_id do -%>
+home
+<%end -%>
+
+<div class="status detail roundbox">
+		
+	 <%= render :partial => "statusDetail", :object => @status, :locals => {:user=>@user} -%>
+
+
+		<% if @current_user && (@user == @current_user)%>
+		    <hr/>
+		    <div class="delete"><a href="<%= confirm_delete_status_path(:login=>@user.login, :id=>@status.id) %>">Delete</a></div>
+		<% end %>
+</div>

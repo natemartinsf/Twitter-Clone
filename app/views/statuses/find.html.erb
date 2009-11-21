@@ -1,0 +1,27 @@
+<% content_for :title do -%>
+search
+<%end -%>
+<% content_for :body_id do -%>
+home
+<%end -%>
+<% content_for :header_id do -%>
+home
+<%end -%>
+
+
+
+<div class="content roundbox">
+
+    <% if @current_user%>
+        <%= render :partial => "/home/sidebar", :locals => {:page=>:search, :user=>@current_user, :topics=>@topics} -%>
+	<% else %>
+	    <%= render :partial => "/home/loggedOutSidebar", :locals => {:topics=>@topics} -%>
+    
+	<% end %>
+	
+	<div class="statuses">
+		
+		<h2>Search</h2>
+		 <%= render :partial => "/home/status", :collection => @results -%>
+	</div>
+</div>

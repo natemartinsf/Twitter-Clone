@@ -1,0 +1,8 @@
+<h3>Topics</h3>
+<ul id="topics">
+    <% topics.each do |topic|%>
+        <% if topic.tag !=nil%>
+        <li><%= link_to "#"+topic.tag, hashtag_path(:hashtag=>topic.tag) %></li>
+        <% end %>
+    <% end %>
+</ul>

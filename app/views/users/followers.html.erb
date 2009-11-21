@@ -1,0 +1,26 @@
+<% content_for :title do -%>
+followers
+<%end -%>
+<% content_for :body_id do -%>
+home
+<%end -%>
+<% content_for :header_id do -%>
+home
+<%end -%>
+
+
+
+<div class="content roundbox">
+    <% if @current_user%>
+        <%= render :partial => "/home/sidebar", :locals => {:page=>:followers, :user=>@current_user, :topics=>@topics} -%>
+	<% else %>
+	    <%= render :partial => "/home/loggedOutSidebar", :locals => {:topics=>@topics} -%>
+    
+	<% end %>
+	
+	<div class="followers">
+		
+		<h2>Followers</h2>
+		 <%= render :partial => "follower", :collection => @followers, :locals => {:myself=>@user} -%>
+	</div>
+</div>
