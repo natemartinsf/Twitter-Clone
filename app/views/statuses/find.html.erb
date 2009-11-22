@@ -8,7 +8,9 @@ home
 home
 <%end -%>
 
-
+<% content_for :js do%>
+<%= javascript_include_tag "menu" %>
+<% end %>
 
 <div class="content roundbox">
 
