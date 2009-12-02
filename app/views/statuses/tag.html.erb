@@ -2,6 +2,10 @@
 <%=h @tag.tag -%>
 <%end -%>
 
+<% content_for :js do%>
+<%= javascript_include_tag "menu" %>
+<% end %>
+
 <% content_for :body_id do -%>
 home
 <%end -%>
