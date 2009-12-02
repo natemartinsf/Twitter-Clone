@@ -83,6 +83,10 @@ ActionController::Routing::Routes.draw do |map|
     :controller => "statuses",
     :action => "find"
     
+  map.all '/statuses/',
+    :controller => "statuses",
+    :action => "all"
+    
   map.status ':login/statuses/:id',
     :conditions => { :method => [:get, :post] },
     :controller => "statuses",

@@ -1,6 +1,6 @@
 class StatusesController < ApplicationController
   before_filter :current_user
-  before_filter :user_from_login, :except => [:tag, :find]
+  before_filter :user_from_login, :except => [:tag, :find, :all]
   before_filter :tags
   
   def index
@@ -42,6 +42,10 @@ class StatusesController < ApplicationController
           another shot, maybe?
         }
       end
+  end
+  
+  def all
+    @statuses = Status.find(:all)
   end
   
   def tag
