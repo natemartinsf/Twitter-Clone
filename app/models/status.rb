@@ -48,7 +48,6 @@ class Status < ActiveRecord::Base
       pattern = "@"+name[0]
       newString = "<a href='/" + name[0] + "'>"+pattern+"</a>"
       sanitized_content.gsub!(pattern,newString)
-      self.content = sanitized_content
     end
     hashtags = sanitized_content.scan(/#(\S*)/)
     for tag in hashtags
@@ -59,14 +58,13 @@ class Status < ActiveRecord::Base
       newTag.save
       newString = "<a href='/tags/" + tag[0] + "'>"+pattern+"</a>"
       sanitized_content.gsub!(pattern,newString)
-      self.content = sanitized_content
     end
     links = sanitized_content.scan(/(http:\/\/\S*)/)
     for link in links
       newString = "<a href='" + link[0] + "'>"+link[0]+"</a>"
       sanitized_content.gsub!(link[0],newString)
-      self.content = sanitized_content
     end
+    self.content = sanitized_content
     self.save!
   end
   
